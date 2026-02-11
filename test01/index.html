@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TETRIS: REFINED</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <div class="game-container">
+            <!-- Left Panel: Hold -->
+            <div class="side-panel left-panel">
+                <div class="panel-title">HOLD</div>
+                <canvas id="hold-canvas" width="120" height="120"></canvas>
+            </div>
+
+            <!-- Center: Play Field -->
+            <div class="main-panel">
+                <div class="game-header">
+                    <h1>TETRIS: REFINED</h1>
+                </div>
+                <canvas id="game-canvas" width="300" height="600"></canvas>
+                <div class="game-info">
+                    <div class="info-row">
+                        <span class="info-label">SCORE</span>
+                        <span class="info-value" id="score">0</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">LEVEL</span>
+                        <span class="info-value" id="level">1</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">LINES</span>
+                        <span class="info-value" id="lines">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Next -->
+            <div class="side-panel right-panel">
+                <div class="panel-title">NEXT</div>
+                <canvas id="next-canvas" width="120" height="400"></canvas>
+            </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>GAME OVER</h2>
+                <div class="final-score">
+                    <div class="score-label">SCORE</div>
+                    <div class="score-value" id="final-score">0</div>
+                </div>
+                <div class="high-score">
+                    <div class="score-label">HIGH SCORE</div>
+                    <div class="score-value" id="high-score">0</div>
+                </div>
+                <button id="restart-btn" class="btn-primary">RESTART</button>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <div class="overlay-content">
+                <h1 class="title-large">TETRIS: REFINED</h1>
+                <p class="subtitle">Classic Rules, Modern Experience</p>
+                <button id="start-btn" class="btn-primary">START GAME</button>
+                <div class="controls-info">
+                    <div class="control-item">← → : Move</div>
+                    <div class="control-item">↓ : Soft Drop</div>
+                    <div class="control-item">SPACE : Hard Drop</div>
+                    <div class="control-item">Z / X : Rotate</div>
+                    <div class="control-item">C : Hold</div>
+                    <div class="control-item">P : Pause</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>PAUSED</h2>
+                <button id="resume-btn" class="btn-primary">RESUME</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
